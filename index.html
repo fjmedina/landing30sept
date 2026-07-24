@@ -437,6 +437,54 @@
     });
   }
 
+  // ============================================================
+  // Señales adicionales para perfilar (siempre anónimas, sin pedir datos):
+  // tipo de dispositivo, origen de la visita (utm/referrer) y una sesión
+  // en memoria del navegador para detectar si la misma visita hizo clic
+  // en más de una categoría.
+  // ============================================================
+  function getDispositivo(){
+    return /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'movil' : 'escritorio';
+  }
+
+  function getOrigenVisita(){
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get('utm_source');
+    const utmMedium = params.get('utm_medium');
+    const utmCampaign = params.get('utm_campaign');
+    if(utmSource){
+      return [utmSource, utmMedium, utmCampaign].filter(Boolean).join(' / ');
+    }
+    if(document.referrer){
+      try{ return new URL(document.referrer).hostname; }
+      catch(e){ return document.referrer; }
+    }
+    return 'directo';
+  }
+
+  function getSesionId(){
+    try{
+      let sid = sessionStorage.getItem('prelco_sid');
+      if(!sid){
+        sid = 'sid_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2,8);
+        sessionStorage.setItem('prelco_sid', sid);
+      }
+      return sid;
+    }catch(e){
+      return '';
+    }
+  }
+
+  function getNumeroClicSesion(){
+    try{
+      const n = parseInt(sessionStorage.getItem('prelco_clicks') || '0', 10) + 1;
+      sessionStorage.setItem('prelco_clicks', String(n));
+      return n;
+    }catch(e){
+      return 1;
+    }
+  }
+
   function registrarClicAnonimo(categoria){
     if(!WEBHOOK_URL) return;
     try{
@@ -446,7 +494,11 @@
         headers: { "Content-Type": "text/plain" },
         body: JSON.stringify({
           origen: "landing_clic_anonimo",
-          categoria: categoria
+          categoria: categoria,
+          dispositivo: getDispositivo(),
+          origen_visita: getOrigenVisita(),
+          sesion_id: getSesionId(),
+          numero_clic_sesion: getNumeroClicSesion()
         })
       });
     }catch(err){
