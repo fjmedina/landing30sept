@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -205,6 +206,41 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(201,76,60,0.5);
   }
+
+  .detalle-visitas{
+    background:#fff;
+    border-left: 4px solid var(--rojo);
+    border-radius:10px;
+    padding: 16px 18px 4px;
+    margin-bottom:24px;
+    box-shadow: 0 1px 4px rgba(26,42,74,0.08);
+  }
+  .detalle-visitas h2{
+    font-size: 14px;
+    color: var(--azul);
+    margin-bottom: 12px;
+  }
+  .detalle-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+  @media (min-width: 560px){
+    .detalle-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  .detalle-grid div strong{
+    display:block;
+    color: var(--rojo);
+    font-size:12.5px;
+    margin-bottom:3px;
+  }
+  .detalle-grid div span{
+    display:block;
+    color: var(--gris);
+    font-size:12.5px;
+    line-height:1.5;
+  }
 </style>
 </head>
 <body>
@@ -224,13 +260,39 @@
     </div>
     <div class="info-item">
       <strong>Visitas a terreno</strong>
-      <span>6 y 7 de agosto — horario AM/PM por confirmar</span>
+      <span>6 y 7 de agosto — ver detalles abajo</span>
     </div>
     <div class="info-item">
       <strong>Comisión</strong>
       <span>12% + IVA</span>
     </div>
   </div>
+
+  <section class="detalle-visitas">
+    <h2>Detalles de la visita a terreno</h2>
+    <div class="detalle-grid">
+      <div>
+        <strong>Fechas</strong>
+        <span>6 y 7 de agosto</span>
+      </div>
+      <div>
+        <strong>Horario AM</strong>
+        <span>Salidas a las 10:00 y 12:00 h desde Puerta 4</span>
+      </div>
+      <div>
+        <strong>Horario PM</strong>
+        <span>Salidas a las 14:00 y 16:00 h desde Puerta 4</span>
+      </div>
+      <div>
+        <strong>Formulario de acceso</strong>
+        <span>Debes adjuntar tu cédula de identidad por ambos lados</span>
+      </div>
+      <div>
+        <strong>EPP</strong>
+        <span>Debes llevar tus propios elementos de protección personal: ropa de geólogo, casco y anteojos de seguridad</span>
+      </div>
+    </div>
+  </section>
 
   <p class="instruccion">Selecciona la categoría que te interesa para registrarte <strong>&darr;</strong></p>
 
