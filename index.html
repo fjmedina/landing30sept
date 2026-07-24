@@ -63,16 +63,20 @@
   }
   .instruccion{
     text-align:center;
-    font-size:15px;
-    color:var(--gris);
+    font-size:17px;
+    font-weight:600;
+    color:var(--azul);
     margin-bottom:20px;
   }
-  .instruccion strong{ color: var(--azul); }
+  .instruccion strong{ color: var(--rojo); }
   .info-bar{
     display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:12px;
+    grid-template-columns: 1fr;
+    gap:10px;
     margin-bottom:24px;
+  }
+  @media (min-width: 560px){
+    .info-bar{ grid-template-columns: 1fr 1fr 1fr; }
   }
   .info-item{
     background:#fff;
@@ -145,151 +149,61 @@
   }
   footer a{ color: var(--rojo); text-decoration:none; font-weight:bold; }
 
-  .mas-categorias{
-    margin-top: 28px;
-    font-size: 12.5px;
-    color: var(--gris);
+  .todas-categorias{
+    margin-top: 32px;
+    background:#fff;
+    border-radius:10px;
+    padding: 18px 18px 6px;
+    box-shadow: 0 1px 4px rgba(26,42,74,0.08);
   }
-  .mas-categorias summary{
-    cursor: pointer;
-    color: var(--gris);
-    font-size: 12.5px;
+  .todas-categorias h2{
+    font-size: 14px;
+    color: var(--azul);
     text-align:center;
-    padding: 8px 0;
-    list-style: none;
-  }
-  .mas-categorias summary::-webkit-details-marker{ display:none; }
-  .mas-categorias summary::before{
-    content: "+ ";
-    color: var(--rojo);
-    font-weight:bold;
-  }
-  .mas-categorias[open] summary::before{
-    content: "− ";
+    margin-bottom: 14px;
   }
   .lista-categorias{
     display:grid;
     grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 12px;
-    padding: 14px 16px;
-    background:#fff;
-    border-radius:8px;
-  }
-  .lista-categorias strong{
-    display:block;
-    color: var(--azul);
-    font-size:12.5px;
-    margin-bottom:4px;
-  }
-  .lista-categorias ul{
-    margin: 0 0 0 16px;
-    padding:0;
-    line-height:1.6;
+    gap: 14px;
+    padding-bottom: 14px;
   }
   @media (min-width: 560px){
-    .lista-categorias{ grid-template-columns: 1fr 1fr 1fr; }
+    .lista-categorias{ grid-template-columns: 1fr 1fr; }
+  }
+  .lista-categorias div strong{
+    display:block;
+    color: var(--rojo);
+    font-size:12.5px;
+    margin-bottom:3px;
+  }
+  .lista-categorias div span{
+    display:block;
+    color: var(--gris);
+    font-size:12px;
+    line-height:1.5;
   }
 
-  /* Modal */
-  .modal-bg{
-    position:fixed; inset:0;
-    background:rgba(26,42,74,0.6);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    z-index:999;
-  }
-  .modal-bg.activo{ display:flex; }
-  .modal{
-    background:#fff;
-    border-radius:14px;
-    max-width:400px;
+  .cta-registro{
+    display:block;
     width:100%;
-    padding:26px 24px 24px;
-    position:relative;
-  }
-  .modal .cerrar{
-    position:absolute;
-    top:12px; right:14px;
-    background:none;
-    border:none;
-    font-size:20px;
-    color:var(--gris);
-    cursor:pointer;
-    line-height:1;
-  }
-  .modal .categoria-badge{
-    display:inline-block;
+    max-width: 440px;
+    margin: 32px auto 0;
     background: var(--rojo);
     color:#fff;
-    font-size:12px;
     font-weight:bold;
-    padding:4px 12px;
-    border-radius:14px;
-    margin-bottom:12px;
-  }
-  .modal h2{
-    font-size:19px;
-    margin-bottom:6px;
-    color:var(--azul);
-  }
-  .modal p.desc{
-    font-size:13.5px;
-    color:var(--gris);
-    margin-bottom:18px;
-    line-height:1.4;
-  }
-  .campo{ margin-bottom:14px; }
-  .campo label{
-    display:block;
-    font-size:13px;
-    font-weight:bold;
-    color:var(--azul);
-    margin-bottom:5px;
-  }
-  .campo input{
-    width:100%;
-    padding:11px 12px;
-    border:1px solid #d7dbe3;
-    border-radius:8px;
-    font-size:14px;
-    font-family:inherit;
-  }
-  .campo input:focus{
-    outline:none;
-    border-color: var(--rojo);
-  }
-  .error-msg{
-    color:var(--rojo);
-    font-size:12.5px;
-    margin-bottom:10px;
-    display:none;
-  }
-  .btn-enviar{
-    width:100%;
-    background: #25D366;
-    color:#fff;
-    font-weight:bold;
-    font-size:15px;
-    border:none;
-    border-radius:9px;
-    padding:13px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    margin-top:4px;
-  }
-  .btn-enviar:disabled{ opacity:0.6; cursor:default; }
-  .privacidad{
-    font-size:11px;
-    color:#9aa1ad;
+    font-size:18px;
     text-align:center;
-    margin-top:12px;
-    line-height:1.4;
+    padding:18px 22px;
+    border-radius:12px;
+    border:none;
+    cursor:pointer;
+    box-shadow: 0 6px 18px rgba(201,76,60,0.4);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .cta-registro:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(201,76,60,0.5);
   }
 </style>
 </head>
@@ -299,11 +213,15 @@
   <img src="imagenes/prelco-logo.png" alt="Prelco - Gestión de Activos" class="logo">
   <span class="tag">Remate Codelco — División Chuquicamata</span>
   <h1>Remate 19 de Agosto</h1>
-  <p>Cientos de activos industriales y mineros a la venta: cintas, motores, chatarra, equipos y más. Elige tu categoría de interés y te conectamos directo por WhatsApp con un ejecutivo Prelco.</p>
+  <p>Cientos de activos industriales y mineros a la venta: cintas, motores, chatarra, equipos y más. Elige tu categoría de interés y regístrate para participar.</p>
 </header>
 
 <main>
   <div class="info-bar">
+    <div class="info-item">
+      <strong>Remate</strong>
+      <span>19 de agosto, 11:30 h</span>
+    </div>
     <div class="info-item">
       <strong>Visitas a terreno</strong>
       <span>6 y 7 de agosto — horario AM/PM por confirmar</span>
@@ -314,14 +232,14 @@
     </div>
   </div>
 
-  <p class="instruccion">Toca la categoría que te interesa <strong>&darr;</strong></p>
+  <p class="instruccion">Selecciona la categoría que te interesa para registrarte <strong>&darr;</strong></p>
 
   <div class="galeria">
 
     <button class="card" data-categoria="cintas">
       <img src="imagenes/cintas.jpg" alt="Cintas transportadoras">
       <div class="overlay">
-        <span>Cintas transportadoras</span>
+        <span>Cintas Transportadoras</span>
         <small>Carretes, sueltas y repuestos ST6800</small>
       </div>
     </button>
@@ -335,18 +253,50 @@
     </button>
 
     <button class="card" data-categoria="chatarra">
-      <img src="imagenes/chatarra.jpg" alt="Chatarra y metales">
+      <img src="imagenes/chatarra.jpg" alt="Chatarra industrial">
       <div class="overlay">
-        <span>Chatarra y Metales</span>
-        <small>Acero inoxidable, estructuras y carretes de fierro</small>
+        <span>Chatarra Industrial</span>
+        <small>Carretes de fierro y otros metales</small>
       </div>
     </button>
 
-    <button class="card" data-categoria="equipos">
-      <img src="imagenes/equipos.jpg" alt="Equipos y repuestos industriales">
+    <button class="card" data-categoria="acero-inox">
+      <img src="imagenes/acero-inox.jpg" alt="Acero inoxidable y otras aleaciones">
       <div class="overlay">
-        <span>Equipos y Repuestos</span>
-        <small>Bombas, válvulas y componentes eléctricos</small>
+        <span>Acero Inoxidable</span>
+        <small>Estanques, planchas y piezas</small>
+      </div>
+    </button>
+
+    <button class="card" data-categoria="estructuras">
+      <img src="imagenes/estructuras.jpg" alt="Estructuras metálicas">
+      <div class="overlay">
+        <span>Estructuras Metálicas</span>
+        <small>Soportes, marcos y perfiles</small>
+      </div>
+    </button>
+
+    <button class="card" data-categoria="bombas-valvulas">
+      <img src="imagenes/bombas-valvulas.jpg" alt="Bombas y válvulas">
+      <div class="overlay">
+        <span>Bombas y Válvulas</span>
+        <small>Industriales, distintos tamaños</small>
+      </div>
+    </button>
+
+    <button class="card" data-categoria="componentes-electricos">
+      <img src="imagenes/componentes-electricos.jpg" alt="Componentes eléctricos">
+      <div class="overlay">
+        <span>Componentes Eléctricos</span>
+        <small>Tableros y sistemas de control</small>
+      </div>
+    </button>
+
+    <button class="card" data-categoria="equipos-piezas-partes">
+      <img src="imagenes/equipos-piezas-partes.jpg" alt="Equipos, piezas y partes">
+      <div class="overlay">
+        <span>Equipos, Piezas y Partes</span>
+        <small>Repuestos y equipos varios</small>
       </div>
     </button>
 
@@ -368,188 +318,139 @@
 
   </div>
 
-  <details class="mas-categorias">
-    <summary>Ver todas las categorías disponibles en este remate</summary>
+  <section class="todas-categorias">
+    <h2>Todas las categorías de este remate</h2>
     <div class="lista-categorias">
       <div>
-        <strong>Cintas transportadoras</strong>
-        <ul>
-          <li>Correas como repuestos ST6800 (32 carretes de 40 toneladas promedio)</li>
-          <li>Correas en carretes</li>
-          <li>Correas sueltas</li>
-        </ul>
+        <strong>Cintas Transportadoras</strong>
+        <span>Correas como repuestos ST6800 (32 carretes de 40 toneladas promedio), correas en carretes, correas sueltas</span>
       </div>
       <div>
-        <strong>Chatarra y Metales</strong>
-        <ul>
-          <li>Acero inoxidable y otras aleaciones</li>
-          <li>Estructuras metálicas</li>
-          <li>Carretes de fierro (solo carretes)</li>
-        </ul>
+        <strong>Motores y Reductores</strong>
+        <span>Motores y reductores industriales y mineros</span>
       </div>
       <div>
-        <strong>Equipos y Repuestos Industriales</strong>
-        <ul>
-          <li>Bombas y válvulas</li>
-          <li>Componentes eléctricos</li>
-          <li>Equipos, piezas y partes</li>
-        </ul>
+        <strong>Chatarra Industrial</strong>
+        <span>Carretes de fierro y chatarra varia</span>
+      </div>
+      <div>
+        <strong>Acero Inoxidable y Otras Aleaciones</strong>
+        <span>Estanques, planchas y piezas de acero inoxidable</span>
+      </div>
+      <div>
+        <strong>Estructuras Metálicas</strong>
+        <span>Soportes, marcos y perfiles</span>
+      </div>
+      <div>
+        <strong>Bombas y Válvulas</strong>
+        <span>Bombas y válvulas industriales</span>
+      </div>
+      <div>
+        <strong>Componentes Eléctricos</strong>
+        <span>Tableros y sistemas de control</span>
+      </div>
+      <div>
+        <strong>Equipos, Piezas y Partes</strong>
+        <span>Equipos y repuestos industriales varios</span>
+      </div>
+      <div>
+        <strong>Ladrillos Refractarios</strong>
+        <span>Para fundiciones, cementeras y hornos</span>
+      </div>
+      <div>
+        <strong>Cables de Cobre</strong>
+        <span>Carretes de cable de cobre</span>
       </div>
     </div>
-  </details>
+  </section>
+
+  <button class="cta-registro" id="btnRegistroGeneral">Quiero registrarme al remate →</button>
 </main>
 
 <footer>
   Un servicio de <a href="https://www.prelco.cl" target="_blank" rel="noopener">Prelco — Gestión de Activos</a>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal">
-    <button class="cerrar" id="cerrarModal" aria-label="Cerrar">&times;</button>
-    <span class="categoria-badge" id="badgeCategoria">Categoría</span>
-    <h2 id="tituloModal">Cuéntanos quién eres</h2>
-    <p class="desc">Completa estos datos y te llevamos directo a WhatsApp con un ejecutivo especializado en esta categoría.</p>
-
-    <form id="formLead">
-      <div class="campo">
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-      <div class="campo">
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" required>
-      </div>
-      <div class="campo">
-        <label for="empresa">Empresa</label>
-        <input type="text" id="empresa" name="empresa" required>
-      </div>
-      <p class="error-msg" id="errorMsg">Por favor completa todos los campos con un correo válido.</p>
-      <button type="submit" class="btn-enviar" id="btnEnviar">Continuar a WhatsApp</button>
-    </form>
-
-    <p class="privacidad">Tus datos se usan solo para contactarte sobre el remate del 19 de agosto.</p>
-  </div>
-</div>
-
 <script>
   // ============================================================
-  // CONFIGURACIÓN — número de WhatsApp y textos por categoría
+  // CONFIGURACIÓN
   // ============================================================
-  const NUMERO_WHATSAPP = "56934011060"; // +56 9 3401 1060
+  // Cada categoría dirige a la misma página de registro (remates.prelco.cl),
+  // con la categoría como parámetro en la URL. remates.prelco.cl es un sitio
+  // externo (no forma parte de este archivo) donde la persona completa su
+  // registro real para el remate.
+  const URL_REGISTRO = "https://remates.prelco.cl/";
 
   const CATEGORIAS = {
-    cintas: {
-      titulo: "Cintas transportadoras",
-      badge: "Cintas transportadoras",
-      mensaje: "Hola, vengo del remate Codelco (División Chuquicamata) del 19 de agosto. Me interesa cotizar cintas transportadoras: correas en carretes, sueltas y repuestos ST6800."
-    },
-    motores: {
-      titulo: "Motores y Reductores",
-      badge: "Motores y Reductores",
-      mensaje: "Hola, vengo del remate Codelco (División Chuquicamata) del 19 de agosto. Me interesa cotizar motores y reductores industriales."
-    },
-    chatarra: {
-      titulo: "Chatarra y Metales",
-      badge: "Chatarra y Metales",
-      mensaje: "Hola, vengo del remate Codelco (División Chuquicamata) del 19 de agosto. Me interesa participar en la venta de chatarra y metales: acero inoxidable, aleaciones, estructuras y carretes de fierro."
-    },
-    equipos: {
-      titulo: "Equipos y Repuestos Industriales",
-      badge: "Equipos y Repuestos",
-      mensaje: "Hola, vengo del remate Codelco (División Chuquicamata) del 19 de agosto. Me interesa cotizar equipos y repuestos industriales: bombas, válvulas y componentes eléctricos."
-    },
-    ladrillos: {
-      titulo: "Ladrillos Refractarios",
-      badge: "Ladrillos Refractarios",
-      mensaje: "Hola, vengo del remate Codelco (División Chuquicamata) del 19 de agosto. Me interesa cotizar ladrillos refractarios."
-    },
-    cables: {
-      titulo: "Cables de Cobre",
-      badge: "Cables de Cobre",
-      mensaje: "Hola, vengo del remate Codelco (División Chuquicamata) del 19 de agosto. Me interesa cotizar carretes de cable de cobre."
-    }
+    "cintas": "cintas-transportadoras",
+    "motores": "motores-y-reductores",
+    "chatarra": "chatarra-industrial",
+    "acero-inox": "acero-inoxidable",
+    "estructuras": "estructuras-metalicas",
+    "bombas-valvulas": "bombas-y-valvulas",
+    "componentes-electricos": "componentes-electricos",
+    "equipos-piezas-partes": "equipos-piezas-partes",
+    "ladrillos": "ladrillos-refractarios",
+    "cables": "cables-de-cobre",
+    "general": "general"
   };
 
-  // URL del webhook que guarda los datos en el Sheet maestro de Prelco (pestaña "Landing Remate - Auto").
+  // Webhook que guarda en el Sheet maestro de Prelco un registro ANÓNIMO
+  // (fecha + categoría) de cada clic — sin pedir ni guardar datos personales.
   const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz1dYUocH7JQuBb-XTLwvqqYzQO1cul4KuRlT9qeSGqrwjgQHgiYivKvDPchuAuD8wU/exec";
 
   // ============================================================
-  // Lógica del modal
+  // Ir a registro: registra el clic (anónimo) y redirige a remates.prelco.cl
+  // con la categoría como parámetro. La usan tanto las tarjetas de categoría
+  // como el botón grande de registro general al final de la página.
   // ============================================================
-  const modalBg = document.getElementById('modalBg');
-  const badgeCategoria = document.getElementById('badgeCategoria');
-  const tituloModal = document.getElementById('tituloModal');
-  const formLead = document.getElementById('formLead');
-  const errorMsg = document.getElementById('errorMsg');
-  const btnEnviar = document.getElementById('btnEnviar');
-  let categoriaActual = null;
+  function irARegistro(categoria){
+    const slug = CATEGORIAS[categoria] || categoria;
+
+    registrarClicAnonimo(categoria);
+
+    const destino = new URL(URL_REGISTRO);
+    destino.searchParams.set('categoria', slug);
+
+    // Reenvía los parámetros utm_* que traía esta página (de Meta/Google Ads)
+    // para no perder el origen de la visita al pasar a remates.prelco.cl.
+    const propios = new URLSearchParams(window.location.search);
+    propios.forEach(function(valor, clave){
+      if(clave.indexOf('utm_') === 0){ destino.searchParams.set(clave, valor); }
+    });
+
+    setTimeout(function(){
+      window.location.href = destino.toString();
+    }, 150);
+  }
 
   document.querySelectorAll('.card').forEach(function(card){
     card.addEventListener('click', function(){
-      categoriaActual = card.getAttribute('data-categoria');
-      const datos = CATEGORIAS[categoriaActual];
-      badgeCategoria.textContent = datos.badge;
-      tituloModal.textContent = "Cuéntanos quién eres";
-      errorMsg.style.display = "none";
-      formLead.reset();
-      modalBg.classList.add('activo');
+      irARegistro(card.getAttribute('data-categoria'));
     });
   });
 
-  document.getElementById('cerrarModal').addEventListener('click', cerrar);
-  modalBg.addEventListener('click', function(e){
-    if(e.target === modalBg) cerrar();
-  });
-  function cerrar(){
-    modalBg.classList.remove('activo');
+  const btnRegistroGeneral = document.getElementById('btnRegistroGeneral');
+  if(btnRegistroGeneral){
+    btnRegistroGeneral.addEventListener('click', function(){
+      irARegistro('general');
+    });
   }
 
-  formLead.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const nombre = document.getElementById('nombre').value.trim();
-    const correo = document.getElementById('correo').value.trim();
-    const empresa = document.getElementById('empresa').value.trim();
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
-
-    if(!nombre || !correo || !empresa || !emailValido){
-      errorMsg.style.display = "block";
-      return;
-    }
-    errorMsg.style.display = "none";
-    btnEnviar.disabled = true;
-    btnEnviar.textContent = "Redirigiendo...";
-
-    const datosCategoria = CATEGORIAS[categoriaActual];
-
-    // Guarda el dato en el Sheet maestro (no bloquea el redirect si falla)
-    guardarLead({
-      origen: "landing_remate",
-      nombre: nombre,
-      correo: correo,
-      empresa: empresa,
-      categoria: categoriaActual
-    });
-
-    // Redirige a WhatsApp con el mensaje de la categoría elegida
-    const url = "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(datosCategoria.mensaje);
-    setTimeout(function(){
-      window.location.href = url;
-    }, 300);
-  });
-
-  function guardarLead(datos){
-    if(!WEBHOOK_URL || WEBHOOK_URL === "PENDIENTE_URL_WEBHOOK") return;
+  function registrarClicAnonimo(categoria){
+    if(!WEBHOOK_URL) return;
     try{
       fetch(WEBHOOK_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify(datos)
+        body: JSON.stringify({
+          origen: "landing_clic_anonimo",
+          categoria: categoria
+        })
       });
     }catch(err){
-      // Si falla el guardado, no bloqueamos el paso a WhatsApp.
+      // Si falla el registro, no bloqueamos el paso a remates.prelco.cl.
     }
   }
 </script>
