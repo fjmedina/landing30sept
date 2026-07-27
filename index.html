@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -207,6 +206,29 @@
     box-shadow: 0 8px 22px rgba(201,76,60,0.5);
   }
 
+  .cta-patios{
+    display:block;
+    width:100%;
+    max-width: 440px;
+    margin: 20px auto 0;
+    background: #fff;
+    color: var(--azul);
+    font-weight:bold;
+    font-size:15px;
+    text-align:center;
+    padding:14px 20px;
+    border-radius:10px;
+    border: 2px solid var(--azul);
+    cursor:pointer;
+    text-decoration:none;
+    box-sizing:border-box;
+    transition: background .15s ease, color .15s ease;
+  }
+  .cta-patios:hover{
+    background: var(--azul);
+    color: #fff;
+  }
+
   .detalle-visitas{
     background:#fff;
     border-left: 4px solid var(--rojo);
@@ -380,6 +402,10 @@
 
   </div>
 
+  <a class="cta-patios" href="https://patios.prelco.cl/dch-ago2026/" target="_blank" rel="noopener">
+    Recorrer los patios del remate →
+  </a>
+
   <section class="todas-categorias">
     <h2>Todas las categorías de este remate</h2>
     <div class="lista-categorias">
@@ -441,7 +467,7 @@
   // con la categoría como parámetro en la URL. remates.prelco.cl es un sitio
   // externo (no forma parte de este archivo) donde la persona completa su
   // registro real para el remate.
-  const URL_REGISTRO = "https://remates.prelco.cl/";
+  const URL_REGISTRO = "https://remates.prelco.cl/auth/sign_up";
 
   const CATEGORIAS = {
     "cintas": "cintas-transportadoras",
