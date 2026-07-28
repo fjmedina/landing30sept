@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -98,6 +99,11 @@
     font-size:13.5px;
     color:var(--azul);
     line-height:1.35;
+  }
+  .link-ancla{
+    color: var(--rojo);
+    font-weight:bold;
+    text-decoration:underline;
   }
   .galeria{
     display:grid;
@@ -249,6 +255,7 @@
     border-left: 4px solid var(--rojo);
     border-radius:10px;
     padding: 16px 18px 4px;
+    margin-top: 32px;
     margin-bottom:24px;
     box-shadow: 0 1px 4px rgba(26,42,74,0.08);
   }
@@ -297,39 +304,13 @@
     </div>
     <div class="info-item">
       <strong>Visitas a terreno</strong>
-      <span>13 y 14 de agosto — ver detalles abajo</span>
+      <span>13 y 14 de agosto — <a class="link-ancla" href="#detalle-visitas">ver detalles abajo</a></span>
     </div>
     <div class="info-item">
       <strong>Comisión</strong>
       <span>12% + IVA</span>
     </div>
   </div>
-
-  <section class="detalle-visitas">
-    <h2>Detalles de la visita a terreno</h2>
-    <div class="detalle-grid">
-      <div>
-        <strong>Fechas</strong>
-        <span>13 y 14 de agosto</span>
-      </div>
-      <div>
-        <strong>Horario AM</strong>
-        <span>Salidas a las 10:00 y 12:00 h desde Puerta 4</span>
-      </div>
-      <div>
-        <strong>Horario PM</strong>
-        <span>Salidas a las 14:00 y 16:00 h desde Puerta 4</span>
-      </div>
-      <div>
-        <strong>Formulario de acceso</strong>
-        <span>Debes adjuntar tu cédula de identidad por ambos lados</span>
-      </div>
-      <div>
-        <strong>EPP</strong>
-        <span>Debes llevar tus propios elementos de protección personal: ropa de geólogo, casco y anteojos de seguridad</span>
-      </div>
-    </div>
-  </section>
 
   <p class="instruccion">Selecciona la categoría que te interesa para registrarte <strong>&darr;</strong></p>
 
@@ -471,6 +452,32 @@
   </section>
 
   <button class="cta-registro" id="btnRegistroGeneral">Quiero registrarme al remate →</button>
+
+  <section class="detalle-visitas" id="detalle-visitas">
+    <h2>Detalles de la visita a terreno</h2>
+    <div class="detalle-grid">
+      <div>
+        <strong>Fechas</strong>
+        <span>13 y 14 de agosto</span>
+      </div>
+      <div>
+        <strong>Horario AM</strong>
+        <span>Salidas a las 10:00 y 12:00 h desde Puerta 4</span>
+      </div>
+      <div>
+        <strong>Horario PM</strong>
+        <span>Salidas a las 14:00 y 16:00 h desde Puerta 4</span>
+      </div>
+      <div>
+        <strong>Formulario de acceso</strong>
+        <span>Debes adjuntar tu cédula de identidad por ambos lados</span>
+      </div>
+      <div>
+        <strong>EPP</strong>
+        <span>Debes llevar tus propios elementos de protección personal: ropa de geólogo, casco y anteojos de seguridad</span>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
