@@ -206,27 +206,42 @@
     box-shadow: 0 8px 22px rgba(201,76,60,0.5);
   }
 
-  .cta-patios{
+  .banner-patios{
+    grid-column: 1 / -1;
+    position:relative;
     display:block;
-    width:100%;
-    max-width: 440px;
-    margin: 20px auto 0;
-    background: #fff;
-    color: var(--azul);
-    font-weight:bold;
-    font-size:15px;
-    text-align:center;
-    padding:14px 20px;
-    border-radius:10px;
-    border: 2px solid var(--azul);
+    border-radius:12px;
+    overflow:hidden;
     cursor:pointer;
-    text-decoration:none;
-    box-sizing:border-box;
-    transition: background .15s ease, color .15s ease;
+    box-shadow: 0 2px 8px rgba(26,42,74,0.15);
+    aspect-ratio: 21 / 9;
   }
-  .cta-patios:hover{
-    background: var(--azul);
-    color: #fff;
+  .banner-patios img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition: transform .25s ease;
+  }
+  .banner-patios:hover img{ transform: scale(1.04); }
+  .banner-patios-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background: linear-gradient(180deg, rgba(26,42,74,0.15) 0%, rgba(26,42,74,0.55) 100%);
+    padding: 12px;
+  }
+  .banner-patios-overlay span{
+    color:#fff;
+    font-weight:bold;
+    font-size:20px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  }
+  @media (min-width: 560px){
+    .banner-patios-overlay span{ font-size:24px; }
   }
 
   .detalle-visitas{
@@ -282,7 +297,7 @@
     </div>
     <div class="info-item">
       <strong>Visitas a terreno</strong>
-      <span>6 y 7 de agosto — ver detalles abajo</span>
+      <span>13 y 14 de agosto — ver detalles abajo</span>
     </div>
     <div class="info-item">
       <strong>Comisión</strong>
@@ -295,7 +310,7 @@
     <div class="detalle-grid">
       <div>
         <strong>Fechas</strong>
-        <span>6 y 7 de agosto</span>
+        <span>13 y 14 de agosto</span>
       </div>
       <div>
         <strong>Horario AM</strong>
@@ -352,6 +367,13 @@
       </div>
     </button>
 
+    <a class="banner-patios" href="https://patios.prelco.cl/dch-ago2026/" target="_blank" rel="noopener">
+      <img src="imagenes/vista-terreno.jpg" alt="Vista virtual de los patios del remate">
+      <div class="banner-patios-overlay">
+        <span>Recorre los patios con la vista virtual</span>
+      </div>
+    </a>
+
     <button class="card" data-categoria="estructuras">
       <img src="imagenes/estructuras.jpg" alt="Estructuras metálicas">
       <div class="overlay">
@@ -401,10 +423,6 @@
     </button>
 
   </div>
-
-  <a class="cta-patios" href="https://patios.prelco.cl/dch-ago2026/" target="_blank" rel="noopener">
-    Recorrer los patios del remate →
-  </a>
 
   <section class="todas-categorias">
     <h2>Todas las categorías de este remate</h2>
